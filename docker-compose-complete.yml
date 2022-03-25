@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  # server1:
+  #   build: log4shell-client
+  #   depends_on:
+  #     - exploit
+  server2:
+    image: ghcr.io/christophetd/log4shell-vulnerable-app
+    ports:
+      - "8081:8080"
+  server3:
+    build: vulnerable-application
+    # image: log4j-shell-poc
+    ports:
+      - "8080:8080"
+  exploit:
+    build: log4shell-exploit
+    # ports:
+    #   - "8001:8000"
+    #   - "9999:9999"
+  remote-code-execution:
+    build: remote-code-execution
+    # ports:
+    #   - "8000:8000"
+    #   - "1389:1389"
+  ubuntu:
+    image: ubuntu:20.04
+    command: bash -c "apt update && apt install -y netcat && tail -f /dev/null"
+

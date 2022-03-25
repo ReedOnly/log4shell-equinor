@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  web-server:
+    build: vulnerable-application
+    ports:
+      - "8080:8080"
+  ubuntu:
+    image: ubuntu:20.04
+    command: bash -c "apt update && apt install -y netcat && tail -f /dev/null"
+
+
+  exploit:               #http://localhost:8001/Evil.class
+    build: log4shell-exploit
+    ports:
+      - "8001:8000"
+      - "9999:9999"
+  remote-code-execution: #http://localhost:8000/Exploit.class
+    build: remote-code-execution
+    ports:
+      - "8000:8000"
+      - "1389:1389"
+
