@@ -18,8 +18,8 @@ services:
     # ports:
     #   - "8001:8000"
     #   - "9999:9999"
-  remote-code-execution:
-    build: remote-code-execution
+  reverse-shell:
+    build: reverse-shell
     # ports:
     #   - "8000:8000"
     #   - "1389:1389"

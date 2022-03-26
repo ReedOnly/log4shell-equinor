@@ -5,8 +5,7 @@ services:
     ports:
       - "8080:8080"
   ubuntu:
-    image: ubuntu:20.04
-    command: bash -c "apt update && apt install -y netcat && tail -f /dev/null"
+    build: ubuntu
 
 
   exploit:               #http://localhost:8001/Evil.class
@@ -14,8 +13,8 @@ services:
     ports:
       - "8001:8000"
       - "9999:9999"
-  remote-code-execution: #http://localhost:8000/Exploit.class
-    build: remote-code-execution
+  reverse-shell: #http://localhost:8000/Exploit.class
+    build: reverse-shell
     ports:
       - "8000:8000"
       - "1389:1389"
